@@ -32,22 +32,6 @@ A complete RESTful API built with **Express.js**, **TypeScript**, and **MongoDB*
 
 ---
 
-## 📂 Project Structure
-
-library-mgt-api/
-│
-├── src/
-│ ├── app/
-│ │ ├── controllers/
-│ │ ├── interfaces/
-│ │ ├── models/
-│ │ 
-│ ├── app.ts
-│ └── server.ts
-├── dist/
-├── package.json
-├── tsconfig.json
-└── .gitignore
 
 
 ---
@@ -76,33 +60,6 @@ GET /api/books?filter=SCIENCE&sortBy=createdAt&sort=desc&limit=5 – Get books
 PUT /api/books/:id – Update a book
 
 DELETE /api/books/:id – Delete a book
-
-📥 Borrow Routes
-POST /api/borrow – Borrow a book
-
-GET /api/borrow – Get summary of borrowed books (aggregated)
-
-🧪 Sample Borrow Request
-{
-  "book": "64ab3f9e2a4b5c6d7e8f9012",
-  "quantity": 2,
-  "dueDate": "2025-07-18T00:00:00.000Z"
-}
-Sample Response:
-{
-  "success": true,
-  "message": "Book borrowed successfully",
-  "data": {
-    "_id": "...",
-    "book": "...",
-    "quantity": 2,
-    "dueDate": "...",
-    "createdAt": "...",
-    "updatedAt": "..."
-  }
-}
-
-
 
 🧑‍💻 Author
 Ibrahim Rahamath Ullah
