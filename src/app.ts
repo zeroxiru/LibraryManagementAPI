@@ -6,7 +6,7 @@ import { borrowRoutes } from './app/controllers/borrow.controller';
 const app: Application = express();
 app.use(express.json())
 app.use('/api/books', bookRoutes)
-app.use('/api/borrows', borrowRoutes)
+app.use('/api/borrow', borrowRoutes)
 
 
 
