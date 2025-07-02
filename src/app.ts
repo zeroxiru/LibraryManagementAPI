@@ -1,9 +1,12 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 import {bookRoutes} from './app/controllers/book.controller'
 import { borrowRoutes } from './app/controllers/borrow.controller';
-// import { usersRoutes } from './app/controllers/user.controller';
+import cors from "cors"
+
 
 const app: Application = express();
+
+app.use(cors({origin: "http://localhost:5173", credentials: true}))
 app.use(express.json())
 app.use('/api/books', bookRoutes)
 app.use('/api/borrow', borrowRoutes)
