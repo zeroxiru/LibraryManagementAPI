@@ -10,7 +10,7 @@ const borrow_controller_1 = require("./app/controllers/borrow.controller");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use('/api/books', book_controller_1.bookRoutes);
-app.use('/api/borrows', borrow_controller_1.borrowRoutes);
+app.use('/api/borrow', borrow_controller_1.borrowRoutes);
 app.get('/', (req, res) => {
     res.send("Welcome to Library Management System  App");
 });
