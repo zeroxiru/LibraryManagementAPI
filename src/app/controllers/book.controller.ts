@@ -52,10 +52,10 @@ bookRoutes.get("/", async (req: Request, res: Response, next: NextFunction) => {
     if(queryLimit){ 
       query.limit(queryLimit)
     }
-    else
-    { 
-      query.limit(10);
-    }
+    // else
+    // { 
+    //   query.limit(10);
+    // }
     const books = await query;
 
     res.status(200).json({
