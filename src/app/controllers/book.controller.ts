@@ -26,7 +26,8 @@ bookRoutes.get("/", async (req: Request, res: Response, next: NextFunction) => {
     const queryGenre = req.query.filter as string;
     const sortField = req.query.sortBy as string;
     const sortOrder = req.query.sort as string;
-    const queryLimit = parseInt(req.query.limit as string);
+    const rawLimit =  req.query.limit as string 
+    const queryLimit = rawLimit? parseInt(rawLimit): undefined;
 
     const filter: Record<string, any> = {};
     const sortOption: Record<string, 1 | -1> = {};
@@ -46,8 +47,16 @@ bookRoutes.get("/", async (req: Request, res: Response, next: NextFunction) => {
       const order = sortOrder?.toLowerCase() === "desc" ? -1 : 1;
       sortOption[sortField] = order;
     }
-
-    const books = await Book.find(filter).sort(sortOption).limit(queryLimit || 10);
+    const query =  Book.find(filter).sort(sortOption);
+    
+    if(queryLimit){ 
+      query.limit(queryLimit)
+    }
+    // else
+    // { 
+    //   query.limit(10);
+    // }
+    const books = await query;
 
     res.status(200).json({
       success: true,
